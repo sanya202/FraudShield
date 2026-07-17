@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const protect = require("./middleware/authMiddleware");
 
 const authRoutes = require("./routes/authRoutes");
 
@@ -16,5 +17,14 @@ app.get("/", (req, res) => {
 
 // Authentication Routes
 app.use("/api/auth", authRoutes);
+
+
+
+app.get("/api/profile", protect, (req, res) => {
+  res.json({
+    message: "Protected Route",
+    user: req.user,
+  });
+});
 
 module.exports = app;
