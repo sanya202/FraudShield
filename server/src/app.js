@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const protect = require("./middleware/authMiddleware");
 
+const transactionRoutes = require("./routes/transactionRoutes");
 const authRoutes = require("./routes/authRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
@@ -17,7 +19,8 @@ app.get("/", (req, res) => {
 
 // Authentication Routes
 app.use("/api/auth", authRoutes);
-
+app.use("/api/transactions", transactionRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 
 app.get("/api/profile", protect, (req, res) => {
