@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div className="w-64 min-h-screen bg-gray-900 border-r border-gray-800 p-6 text-white">
-      <h1 className="text-2xl font-bold mb-10">
-        🛡 FraudShield
-      </h1>
+      <h1 className="text-2xl font-bold mb-10">🛡 FraudShield</h1>
 
       <nav className="space-y-4">
+        <Link to="/dashboard" className="block text-gray-300 hover:text-white">
+          Dashboard
+        </Link>
+
         <Link
-          to="/dashboard"
+          to="/analyze"
           className="block text-gray-300 hover:text-white"
         >
-          Dashboard
+          Analyze Transaction
         </Link>
 
         <Link
@@ -22,17 +24,11 @@ function Sidebar() {
           Transactions
         </Link>
 
-        <Link
-          to="/analytics"
-          className="block text-gray-300 hover:text-white"
-        >
+        <Link to="/analytics" className="block text-gray-300 hover:text-white">
           Analytics
         </Link>
 
-        <Link
-          to="/settings"
-          className="block text-gray-300 hover:text-white"
-        >
+        <Link to="/settings" className="block text-gray-300 hover:text-white">
           Settings
         </Link>
       </nav>

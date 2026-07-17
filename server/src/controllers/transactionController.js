@@ -19,7 +19,13 @@ const createTransaction = async (req, res) => {
   {
     amount,
 
-    merchantName: 4,
+    merchantName: 
+    merchantName === "Amazon India" ? 0 :
+    merchantName === "Flipkart" ? 1 :
+    merchantName === "Myntra" ? 2 :
+    merchantName === "Reliance Digital" ? 3 :
+    merchantName === "Swiggy" ? 4 :
+    merchantName === "Zomato" ? 5 : 0,
 
     transactionType:
       transactionType === "Purchase" ? 1 :
@@ -36,8 +42,14 @@ const createTransaction = async (req, res) => {
       deviceType === "Mobile" ? 1 :
       deviceType === "Tablet" ? 2 : 0,
 
-    location: 1,
-    currency: 0,
+    location: 
+      location === "Bangalore" ? 0 :
+      location === "Chennai" ? 1 :
+      location === "Delhi" ? 2 :
+      location === "Hyderabad" ? 3 :
+      location === "Mumbai" ? 4 : 0,
+    
+    currency: currency === "INR" ? 0 : 1,
 
     hourOfDay: new Date().getHours(),
     isWeekend: [0,6].includes(new Date().getDay()) ? 1 : 0
